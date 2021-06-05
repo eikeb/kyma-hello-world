@@ -1,6 +1,9 @@
 # Use a prebuild-image that provides NodeJS 14 LTS
 FROM node:14-alpine as builder
 
+# Link the Docker image to the GitHub repository
+LABEL org.opencontainers.image.source="https://github.com/eikeb/kyma-hello-world"
+
 # Set NodeJS production environment
 ENV NODE_ENV=production
 
