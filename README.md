@@ -31,3 +31,9 @@ docker run -p 43000:3000 -d <your-user-name>/kyma-hello-world
 ```
 After that, open http://localhost:43000 to access the application that is running inside the docker container.
 
+## Create the Kyma Namespace
+
+```bash
+kubectl create namespace kyma-samples
+kubectl apply -f app/k8s/manifest.yaml
+```
