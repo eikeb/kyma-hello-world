@@ -14,10 +14,12 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the kyma-hello-world Docker image
-        run: |
-          docker build ./app --tag ghcr.io/eikeb/kyma-hello-world:latest
-          docker run ghcr.io/eikeb/kyma-hello-world:latest
-          docker push ghcr.io/eikeb/kyma-hello-world:latest
+      - name: Build container image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
+            docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.ref }}

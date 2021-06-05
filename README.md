@@ -20,7 +20,7 @@ In order to deploy our application to the Kyma environment we need to create a D
 docker build . -t <your-user-name>/kyma-hello-world
 ```
 
-Note: I pre-built the image and pushed it to the Docker registry as ``ebergmann/kyma-hello-world``.
+Note: I pre-built the image and pushed it to the GitHub Docker registry as ``ghcr.io/eikeb/kyma-hello-world:latest``.
 
 ## Start the Docker image
 

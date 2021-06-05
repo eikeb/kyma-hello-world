@@ -37,7 +37,7 @@ spec:
         app: kyma-hello-world
     spec: # pod spec
       containers:
-        - image: ghcr.io/sap-samples/kyma-mtx-faq-backend:latest # image we pushed
+        - image: ghcr.io/eikeb/kyma-hello-world:latest
           name: faq-backend
           imagePullPolicy: Always
           env:
