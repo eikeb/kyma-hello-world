@@ -1,0 +1,23 @@
+name: publish
+
+on: [push]
+
+jobs:
+  publish-kyma-hello-world-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+
+      - name: Build the kyma-hello-world Docker image
+        run: |
+          docker build ./app --tag ghcr.io/eikeb/kyma-hello-world:latest
+          docker run ghcr.io/eikeb/kyma-hello-world:latest
+          docker push ghcr.io/eikeb/kyma-hello-world:latest
