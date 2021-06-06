@@ -14,7 +14,7 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 3000
+      port: 4004
       targetPort: 3000
   selector:
     app: kyma-hello-world
